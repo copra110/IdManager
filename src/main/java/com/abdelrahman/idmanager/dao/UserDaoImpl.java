@@ -44,7 +44,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao
     {
         try
         {
-            String path = "D:/Work/FrenchBakery/java/IdManager/src/main/webapp/images/UserIDS/" + user.getEmail() + ".jpg";
+            String path = "D:/Java/NetbeensProjects/IdManager/src/main/webapp/images/UserIDS/" + user.getName()+ ".jpg";
             Files.write(new File(path).toPath(), user.getId_pic());
             user.setIdPicPath(path);
         }

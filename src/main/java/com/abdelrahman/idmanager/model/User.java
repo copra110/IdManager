@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,20 +23,12 @@ public class User implements Serializable
     private Integer id;
 
     @NotEmpty
-    @Column(name = "FIRST_NAME", nullable = false)
-    private String firstName;
+    @Column(name = "Name", nullable = false)
+    private String name;
 
     @NotEmpty
-    @Column(name = "LAST_NAME", nullable = false)
-    private String lastName;
-
-    @NotEmpty
-    @Column(name = "EMAIL", nullable = false, unique = true)
-    private String email;
-    
-    @NotEmpty
-    @Column(name = "MAC_ADDRESS", nullable = false , unique = true)
-    private String macAddress;
+    @Column(name = "ADDRESS", nullable = false, unique = true)
+    private String address;
     
     @NotEmpty
     @Column(name = "ID_PIC", nullable = false)
@@ -61,44 +52,24 @@ public class User implements Serializable
         this.id = id;
     }
 
-    public String getFirstName()
+    public String getName()
     {
-        return firstName;
+        return name;
     }
 
-    public void setFirstName(String firstName)
+    public void setName(String name)
     {
-        this.firstName = firstName;
+        this.name = name;
     }
 
-    public String getLastName()
+    public String getAddress()
     {
-        return lastName;
+        return address;
     }
 
-    public void setLastName(String lastName)
+    public void setAddress(String address)
     {
-        this.lastName = lastName;
-    }
-
-    public String getEmail()
-    {
-        return email;
-    }
-
-    public void setEmail(String email)
-    {
-        this.email = email;
-    }
-
-    public String getMacAddress()
-    {
-        return macAddress;
-    }
-
-    public void setMacAddress(String macAddress)
-    {
-        this.macAddress = macAddress;
+        this.address = address;
     }
 
     public byte[] getId_pic()

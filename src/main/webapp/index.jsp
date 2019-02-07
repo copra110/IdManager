@@ -81,25 +81,15 @@
                                             <thead>
                                                 <tr>
                                                     <th>Name</th>
-                                                    <th>Customer Email</th>
-                                                    <th>Time</th>
-                                                    <th>Outlet</th>
-                                                    <th>Ateendance ID</th>
-                                                    <th>Customer ID</th>
-                                                    <th>Order Number</th>
-                                                    <th>Action</th>
+                                                    <th>Email</th>
+                                                    <th>Signiture</th>
                                                 </tr>
                                             </thead>
                                             <tfoot>
                                                 <tr>
                                                     <th>Name</th>
-                                                    <th>Customer Email</th>
-                                                    <th>Time</th>
-                                                    <th>Outlet</th>
-                                                    <th>Ateendance ID</th>
-                                                    <th>Customer</th>
-                                                    <th>Order Number</th>
-                                                    <th>Action</th>
+                                                    <th>Email</th>
+                                                    <th>Signiture</th>
                                                 </tr>
                                             </tfoot>
                                         </table>
@@ -152,25 +142,19 @@
                     ]
                 });
                 $.ajax({
-                    url: 'webapi/attendances/list',
+                    url: 'webapi/users',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     method: 'GET',
                     success: function (data) {
-                        var attendances = data;
-                        for (var i = 0; i < attendances.length; i++)
+                        var users = data;
+                        for (var i = 0; i < users.length; i++)
                         {
-                            var date=attendances[i].createdAt.replace("T", "  ").replace("Z[UTC]", "");
                             table.row.add([
-                                attendances[i].user.firstName + " " + attendances[i].user.lastName,
-                                attendances[i].user.email,
-                                date,
-                                attendances[i].outlet,
-                                attendances[i].id,
-                                "<img src=\"images/UserIDS/" + attendances[i].user.email + ".jpg" + "\" alt=\"user image id\"/>",
-                                "<input type=\"text\" id=\"order_number_\" name=\"order_number_\"/>",
-                                "<button type=\"button\" class=\"btn btn-primary btn-rounded m-b-10 m-l-5\">Save</button>"
+                                users[i].name,
+                                users[i].address,
+                                "<img style=\"width: 100px;\" src=\"images/UserIDS/" + users[i].name + ".jpg" + "\" alt=\"user image id\"/>"
                             ]).draw(false);
                         }
                     }
@@ -179,5 +163,4 @@
 
         </script>
     </body>
-
 </html>
